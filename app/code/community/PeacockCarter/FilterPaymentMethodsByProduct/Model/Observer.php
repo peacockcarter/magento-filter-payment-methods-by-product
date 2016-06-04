@@ -106,8 +106,10 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
      */
     private function setMethodVisibility(Varien_Event_Observer $observer)
     {
-        $result              = $observer->getEvent()->getResult();
-        $result->isAvailable = $this->isMethodAllowed();
+        $result = $observer->getEvent()->getResult();
+        if ($result->isAvailable) {
+            $result->isAvailable = $this->isMethodAllowed();
+        }
     }
 
     /**
