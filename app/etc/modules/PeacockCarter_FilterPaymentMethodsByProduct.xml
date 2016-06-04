@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <PeacockCarter_FilterPaymentMethodsByProduct>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Catalog />
+                <Mage_Sales />
+                <PeacockCarter_FilterPaymentMethodsOnShippingAddress />
+            </depends>
+        </PeacockCarter_FilterPaymentMethodsByProduct>
+    </modules>
+</config>

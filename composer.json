@@ -1,0 +1,44 @@
+{
+  "name": "PeacockCarter/FilterPaymentByProduct",
+  "type": "magento-module",
+  "license": "OSL-3.0",
+  "homepage": "https://peacock-carter/magento-filter-payment-methods-by-products",
+  "description": "Filter payment methods by products in the cart.",
+  "authors": [
+    {
+      "name": "Richie McFarlane - @weaves81",
+      "email": "dev@peacockcarter.co.uk"
+    }
+  ],
+  "extra": {
+    "map": [
+      [
+        "app/etc/modules/PeacockCarter_FilterPaymentByProduct.xml",
+        "app/etc/modules/PeacockCarter_FilterPaymentByProduct.xml"
+      ],
+      [
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/etc/config.xml",
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/etc/config.xml"
+      ],
+      [
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Observer.php",
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Observer.php"
+      ],
+      [
+        "app/etc/modules/PeacockCarter_FilterPaymentByProduct/sql/filter_payment_methods_by_product_setup/install.php",
+        "app/etc/modules/PeacockCarter_FilterPaymentByProduct/sql/filter_payment_methods_by_product_setup/install.php"
+      ],
+      [
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Resource/Setup.php",
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Resource/Setup.php"
+      ],
+      [
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Attribute/Source/PaymentMethods.php",
+        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Attribute/Source/PaymentMethods.php"
+      ]
+    ]
+  },
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  }
+}

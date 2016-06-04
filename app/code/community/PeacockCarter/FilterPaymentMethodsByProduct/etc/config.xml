@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <PeacockCarter_FilterPaymentMethodsByProduct>
+            <version>1.0.0</version>
+        </PeacockCarter_FilterPaymentMethodsByProduct>
+    </modules>
+    <global>
+        <models>
+            <peacockcarter_filterpaymentmethodsbyproduct>
+                <class>PeacockCarter_FilterPaymentMethodsByProduct_Model</class>
+            </peacockcarter_filterpaymentmethodsbyproduct>
+        </models>
+        <resources>
+            <filter_payment_methods_by_product_setup>
+                <setup>
+                    <module>PeacockCarter_FilterPaymentMethodsByProduct</module>
+                    <class>PeacockCarter_FilterPaymentMethodsByProduct_Model_Resource_Setup</class>
+                </setup>
+            </filter_payment_methods_by_product_setup>
+        </resources>
+        <events>
+            <payment_method_is_active>
+                <observers>
+                    <disable_payment_method_by_product>
+                        <class>PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer</class>
+                        <method>productBasedPaymentMethod</method>
+                    </disable_payment_method_by_product>
+                </observers>
+            </payment_method_is_active>
+        </events>
+    </global>
+</config>
