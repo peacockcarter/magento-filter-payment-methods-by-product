@@ -1,5 +1,5 @@
 {
-  "name": "PeacockCarter/FilterPaymentByProduct",
+  "name": "PeacockCarter/FilterPaymentMethodsByProduct",
   "type": "magento-module",
   "license": "OSL-3.0",
   "homepage": "https://peacock-carter/magento-filter-payment-methods-by-products",
@@ -13,28 +13,28 @@
   "extra": {
     "map": [
       [
-        "app/etc/modules/PeacockCarter_FilterPaymentByProduct.xml",
-        "app/etc/modules/PeacockCarter_FilterPaymentByProduct.xml"
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct.xml",
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct.xml"
       ],
       [
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/etc/config.xml",
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/etc/config.xml"
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/etc/config.xml",
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/etc/config.xml"
       ],
       [
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Observer.php",
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Observer.php"
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Observer.php",
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Observer.php"
       ],
       [
-        "app/etc/modules/PeacockCarter_FilterPaymentByProduct/sql/filter_payment_methods_by_product_setup/install.php",
-        "app/etc/modules/PeacockCarter_FilterPaymentByProduct/sql/filter_payment_methods_by_product_setup/install.php"
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/install.php",
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/install.php"
       ],
       [
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Resource/Setup.php",
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Resource/Setup.php"
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Resource/Setup.php",
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Resource/Setup.php"
       ],
       [
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Attribute/Source/PaymentMethods.php",
-        "app/code/community/PeacockCarter/FilterPaymentByProduct/Model/Attribute/Source/PaymentMethods.php"
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Attribute/Source/PaymentMethods.php",
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Attribute/Source/PaymentMethods.php"
       ]
     ]
   },
