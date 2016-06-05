@@ -8,4 +8,7 @@ Group contains 2 attributes
 * Multi-select which active payment methods to restrict for that product.
 
 Observer on "payment_method_is_active" event. 
-Checks if products in cart are restricted for each payment method and removes that payment method if restriction is in place.
+
+Checks if products in cart are restricted for each payment method.
+
+Removes that payment method if restriction is in place.
