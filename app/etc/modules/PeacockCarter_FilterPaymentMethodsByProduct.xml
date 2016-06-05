@@ -7,7 +7,6 @@
             <depends>
                 <Mage_Catalog />
                 <Mage_Sales />
-                <PeacockCarter_FilterPaymentMethodsOnShippingAddress />
             </depends>
         </PeacockCarter_FilterPaymentMethodsByProduct>
     </modules>
