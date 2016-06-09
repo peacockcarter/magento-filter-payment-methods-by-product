@@ -83,7 +83,7 @@ $installer->addAttribute(
         'frontend'                => '',
         'label'                   => 'Restrict All Selected Methods',
         'input'                   => 'multiselect',
-        'source'                  => 'peacockcarter_filterpaymentmethodsbyproduct/attribute_source_paymentmethods',
+        'source'                  => 'peacockcarter_filterpaymentmethodsbyproduct/attribute_source_payment/methods',
         'global'                  => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
         'visible'                 => true,
         'required'                => false,

@@ -25,12 +25,12 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-class PeacockCarter_FilterPaymentMethodsByProduct_Model_Attribute_Source_PaymentMethods extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+class PeacockCarter_FilterPaymentMethodsByProduct_Model_Attribute_Source_Payment_Methods extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
 {
     /**
      * @return array
      */
-    public function getAllOptions() //getActivePaymentMethods()
+    public function getAllOptions()
     {
         $payments = Mage::getSingleton('payment/config')->getActiveMethods();
 
