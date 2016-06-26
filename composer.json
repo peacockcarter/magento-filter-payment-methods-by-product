@@ -37,6 +37,10 @@
         "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.1-1.0.2.php"
       ],
       [
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.2-1.0.3.php",
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.2-1.0.3.php"
+      ],
+      [
         "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Resource/Setup.php",
         "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Resource/Setup.php"
       ],
