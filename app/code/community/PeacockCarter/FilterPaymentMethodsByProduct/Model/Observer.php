@@ -182,10 +182,10 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
         $nonRestrictedCountries = explode(',', $nonRestrictedCountries);
 
         if (count($nonRestrictedCountries) > 0) {
-            $ShippingAddress   = $this->quote->getBillingAddress();
-            $shippingCountryId = $ShippingAddress->getCountryId();
+            $BillingAddress   = $this->quote->getBillingAddress();
+            $billingCountryId = $BillingAddress->getCountryId();
 
-            return in_array($shippingCountryId, $nonRestrictedCountries);
+            return in_array($billingCountryId, $nonRestrictedCountries);
         }
 
         return false;
