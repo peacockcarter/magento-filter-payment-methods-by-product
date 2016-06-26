@@ -47,7 +47,7 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
      */
     public function productBasedPaymentMethod(Varien_Event_Observer $observer)
     {
-        if (! $this->doesQuoteExist($observer)) {
+        if (!$this->doesQuoteExist($observer)) {
 
             return;
         }
@@ -71,15 +71,6 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
         return $this->quote && $this->quote->getId();
     }
 
-    protected function setRestrictedMethodsForCart()
-    {
-        $products = $this->getProductsInCart();
-
-        foreach ($products as $product) {
-            $this->addRestrictedMethodsToArray($product->getProductId());
-        }
-    }
-
     /**
      * @param Varien_Event_Observer $observer
      */
@@ -87,6 +78,25 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
     {
         $MethodInstance           = $observer->getEvent()->getMethodInstance();
         $this->_paymentMethodCode = $MethodInstance->getCode();
+    }
+
+    /**
+     * @return bool
+     */
+    private function isMethodEnabled()
+    {
+        $activePaymentMethods = $this->getActivePaymentMethodCodes();
+
+        return in_array($this->_paymentMethodCode, $activePaymentMethods);
+    }
+
+    protected function setRestrictedMethodsForCart()
+    {
+        $products = $this->getProductsInCart();
+
+        foreach ($products as $product) {
+            $this->addRestrictedMethodsToArray($product->getProductId());
+        }
     }
 
     /**
@@ -107,6 +117,11 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
         $storeId = Mage::app()->getStore()->getStoreId();
 
         if ($this->isRestrictionEnabled($productId, $storeId)) {
+
+            if ($this->isShippingCountryInNonRestrictedList($productId, $storeId)) {
+                return;
+            }
+
             $restrictedMethodList = Mage::getResourceModel('catalog/product')
                                         ->getAttributeRawValue($productId, 'pc_restricted_payment_methods', $storeId);
             $this->_restrictedMethods .= $restrictedMethodList . ',';
@@ -127,11 +142,35 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
     }
 
     /**
+     * @param $productId
+     * @param $storeId
+     *
+     * @return bool
+     */
+    private function isShippingCountryInNonRestrictedList($productId, $storeId)
+    {
+        $nonRestrictedCountries = Mage::getResourceModel('catalog/product')
+                                      ->getAttributeRawValue($productId, 'pc_non_restricted_countries', $storeId);
+
+        $nonRestrictedCountries = explode(',', $nonRestrictedCountries);
+
+        if (count($nonRestrictedCountries) > 0) {
+            $ShippingAddress   = $this->quote->getShippingAddress();
+            $shippingCountryId = $ShippingAddress->getCountryId();
+
+            return in_array($shippingCountryId, $nonRestrictedCountries);
+        }
+
+        return false;
+    }
+
+    /**
      * @param Varien_Event_Observer $observer
      */
     private function setMethodVisibility(Varien_Event_Observer $observer)
     {
         $result = $observer->getEvent()->getResult();
+
         if ($result->isAvailable) {
             $result->isAvailable = $this->isMethodAllowed();
         }
@@ -142,17 +181,13 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
      */
     private function isMethodAllowed()
     {
-        return ! in_array($this->_paymentMethodCode, explode(',', $this->_restrictedMethods));
-    }
+        $restricted_methods_array = explode(',', $this->_restrictedMethods);
+        if (count($restricted_methods_array) > 0) {
 
-    /**
-     * @return bool
-     */
-    private function isMethodEnabled()
-    {
-        $activePaymentMethods = $this->getActivePaymentMethodCodes();
+            return !in_array($this->_paymentMethodCode, $restricted_methods_array);
+        }
 
-        return in_array($this->_paymentMethodCode, $activePaymentMethods);
+        return true;
     }
 
     /**

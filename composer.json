@@ -29,12 +29,20 @@
         "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/install.php"
       ],
       [
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.0.-1.0.1.php",
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.0.-1.0.1.php"
+      ],
+      [
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.1.-1.0.2.php",
+        "app/etc/modules/PeacockCarter_FilterPaymentMethodsByProduct/sql/filter_payment_methods_by_product_setup/upgrade-1.0.1.-1.0.2.php"
+      ],
+      [
         "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Resource/Setup.php",
         "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Resource/Setup.php"
       ],
       [
-        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Attribute/Source/PaymentMethods.php",
-        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Attribute/Source/PaymentMethods.php"
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Attribute/Source/Payment/Methods.php",
+        "app/code/community/PeacockCarter/FilterPaymentMethodsByProduct/Model/Attribute/Source/Payment/Methods.php"
       ]
     ]
   },
