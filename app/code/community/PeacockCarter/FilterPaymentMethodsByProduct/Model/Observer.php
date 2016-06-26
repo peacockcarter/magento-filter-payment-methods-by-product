@@ -177,7 +177,7 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
     private function isBillingCountryInNonRestrictedList($productId, $storeId)
     {
         $nonRestrictedCountries = Mage::getResourceModel('catalog/product')
-                                      ->getAttributeRawValue($productId, 'pc_non_restricted_billing_countries', $storeId);
+                                      ->getAttributeRawValue($productId, 'pc_non_restrict_bill_county', $storeId);
 
         $nonRestrictedCountries = explode(',', $nonRestrictedCountries);
 
