@@ -2,11 +2,12 @@
 
 Adds attribute group to all attribute sets. 
 
-Group contains 3 attributes
+Group contains 4 attributes
 
 * Is Enabled
-* Multi-select which active payment methods to restrict for that product.
-* list of shipping countries not to apply this rule to
+* Multi-select which active payment methods to restrict for this product.
+* list of shipping countries not to apply restriction to.
+* list off billing countries not to apply restriction to. 
 
 Observer on "payment_method_is_active" event. 
 
