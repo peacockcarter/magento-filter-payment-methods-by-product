@@ -34,7 +34,7 @@
     <global>
         <models>
             <peacockcarter_filterpaymentmethodsbyproduct>
-                <class>Peacock_FilterPaymentMethodsByProduct_Model</class>
+                <class>PeacockCarter_FilterPaymentMethodsByProduct_Model</class>
             </peacockcarter_filterpaymentmethodsbyproduct>
         </models>
         <resources>
