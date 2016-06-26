@@ -122,6 +122,10 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
                 return;
             }
 
+            if ($this->isBillingCountryInNonRestrictedList($productId, $storeId)) {
+                return;
+            }
+
             $restrictedMethodList = Mage::getResourceModel('catalog/product')
                                         ->getAttributeRawValue($productId, 'pc_restricted_payment_methods', $storeId);
             $this->_restrictedMethods .= $restrictedMethodList . ',';
@@ -156,6 +160,29 @@ class PeacockCarter_FilterPaymentMethodsByProduct_Model_Observer
 
         if (count($nonRestrictedCountries) > 0) {
             $ShippingAddress   = $this->quote->getShippingAddress();
+            $shippingCountryId = $ShippingAddress->getCountryId();
+
+            return in_array($shippingCountryId, $nonRestrictedCountries);
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $productId
+     * @param $storeId
+     *
+     * @return bool
+     */
+    private function isBillingCountryInNonRestrictedList($productId, $storeId)
+    {
+        $nonRestrictedCountries = Mage::getResourceModel('catalog/product')
+                                      ->getAttributeRawValue($productId, 'pc_non_restricted_billing_countries', $storeId);
+
+        $nonRestrictedCountries = explode(',', $nonRestrictedCountries);
+
+        if (count($nonRestrictedCountries) > 0) {
+            $ShippingAddress   = $this->quote->getBillingAddress();
             $shippingCountryId = $ShippingAddress->getCountryId();
 
             return in_array($shippingCountryId, $nonRestrictedCountries);

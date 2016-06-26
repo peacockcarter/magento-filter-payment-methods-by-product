@@ -34,19 +34,24 @@ $productTypes = array(
     Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE,
     Mage_Catalog_Model_Product_Type::TYPE_VIRTUAL,
 );
+
+if (Mage::getEdition() == 'Enterprise') {
+    $productTypes[] = Enterprise_GiftCard_Model_Catalog_Product_Type_Giftcard::TYPE_GIFTCARD;
+}
+
 $productTypes = join(',', $productTypes);
 
 $groupName = 'Payment Methods';
 
 $installer->addAttribute(
     Mage_Catalog_Model_Product::ENTITY,
-    'pc_non_restricted_countries',
+    'pc_non_restrict_bill_county',
     array(
         'group'                   => $groupName,
         'type'                    => 'text',
         'backend'                 => 'eav/entity_attribute_backend_array',
         'frontend'                => '',
-        'label'                   => 'Do Not Restrict For These Shipping Countries',
+        'label'                   => 'Do Not Restrict For These Billing Countries',
         'input'                   => 'multiselect',
         'source'                  => 'customer/entity_address_attribute_source_country',
         'global'                  => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_WEBSITE,
