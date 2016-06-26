@@ -24,37 +24,38 @@
  * @copyright  Copyright (c) 2016 PeacockCarter Ltd
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
+if (Mage::getEdition() == 'Enterprise') {
 
-/** @var $installer Mage_Catalog_Model_Resource_Setup */
-$installer = Mage::getResourceModel('catalog/setup', 'catalog_setup');
+    /** @var $installer Mage_Catalog_Model_Resource_Setup */
+    $installer = Mage::getResourceModel('catalog/setup', 'catalog_setup');
 
-$productTypes = array(
-    Mage_Catalog_Model_Product_Type::TYPE_SIMPLE,
-    Mage_Catalog_Model_Product_Type::TYPE_BUNDLE,
-    Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE,
-    Mage_Catalog_Model_Product_Type::TYPE_VIRTUAL,
-    Enterprise_GiftCard_Model_Catalog_Product_Type_Giftcard::TYPE_GIFTCARD,
-);
-$productTypes = join(',', $productTypes);
+    $productTypes = array(
+        Mage_Catalog_Model_Product_Type::TYPE_SIMPLE,
+        Mage_Catalog_Model_Product_Type::TYPE_BUNDLE,
+        Mage_Catalog_Model_Product_Type::TYPE_CONFIGURABLE,
+        Mage_Catalog_Model_Product_Type::TYPE_VIRTUAL,
+        Enterprise_GiftCard_Model_Catalog_Product_Type_Giftcard::TYPE_GIFTCARD,
+    );
+    $productTypes = join(',', $productTypes);
 
-$installer->updateAttribute(
-    Mage_Catalog_Model_Product::ENTITY,
-    'pc_restrict_payment_methods',
-    'apply_to',
-    $productTypes
-);
+    $installer->updateAttribute(
+        Mage_Catalog_Model_Product::ENTITY,
+        'pc_restrict_payment_methods',
+        'apply_to',
+        $productTypes
+    );
 
-$installer->updateAttribute(
-    Mage_Catalog_Model_Product::ENTITY,
-    'pc_restricted_payment_methods',
-    'apply_to',
-    $productTypes
-);
+    $installer->updateAttribute(
+        Mage_Catalog_Model_Product::ENTITY,
+        'pc_restricted_payment_methods',
+        'apply_to',
+        $productTypes
+    );
 
-$installer->updateAttribute(
-    Mage_Catalog_Model_Product::ENTITY,
-    'pc_non_restricted_countries',
-    'apply_to',
-    $productTypes
-);
-
+    $installer->updateAttribute(
+        Mage_Catalog_Model_Product::ENTITY,
+        'pc_non_restricted_countries',
+        'apply_to',
+        $productTypes
+    );
+}
